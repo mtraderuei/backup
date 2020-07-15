@@ -1,0 +1,14 @@
+{
+	"name": "StagingStorage-est",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "SecureString",
+				"value": "**********"
+			}
+		},
+		"annotations": []
+	}
+}

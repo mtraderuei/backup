@@ -1,0 +1,25 @@
+{
+	"name": "dbo-Ports-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "Port_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Port",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Ports]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,1997 @@
+{
+	"name": "Copy-Original-RSX-30",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy-dbo-mDNSInputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[mDNSInputs]', 'U') IS NULL CREATE TABLE [dbo].[mDNSInputs] ([FK_mDNS_RID] int,\n[FK_Input_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_mDNS_RID": "FK_mDNS_RID",
+							"FK_Input_RID": "FK_Input_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-mDNSInputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-mDNSInputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-mDNSOutputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[mDNSOutputs]', 'U') IS NULL CREATE TABLE [dbo].[mDNSOutputs] ([FK_mDNS_RID] int,\n[FK_Output_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_mDNS_RID": "FK_mDNS_RID",
+							"FK_Output_RID": "FK_Output_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-mDNSOutputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-mDNSOutputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-mDNSTypes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[mDNSTypes]', 'U') IS NULL CREATE TABLE [dbo].[mDNSTypes] ([mDNSType_RID] int,\n[Type] nvarchar(50));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"mDNSType_RID": "mDNSType_RID",
+							"Type": "Type"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-mDNSTypes-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-mDNSTypes-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Miscs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Miscs]', 'U') IS NULL CREATE TABLE [dbo].[Miscs] ([Misc_RID] int,\n[Hash] varbinary(64),\n[Misc] nvarchar(4000));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Misc_RID": "Misc_RID",
+							"Hash": "Hash",
+							"Misc": "Misc"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Miscs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Miscs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-OEMIds",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[OEMIds]', 'U') IS NULL CREATE TABLE [dbo].[OEMIds] ([OEMId_RID] int,\n[OEMId] nvarchar(50));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"OEMId_RID": "OEMId_RID",
+							"OEMId": "OEMId"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-OEMIds-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-OEMIds-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Operations",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Operations]', 'U') IS NULL CREATE TABLE [dbo].[Operations] ([Operation_RID] int,\n[OperationName] nvarchar(50));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Operation_RID": "Operation_RID",
+							"OperationName": "OperationName"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Operations-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Operations-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-OperationServiceLogs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[OperationServiceLogs]', 'U') IS NULL CREATE TABLE [dbo].[OperationServiceLogs] ([FK_Operation_RID] int,\n[FK_ServiceLog_RID] int,\n[FK_PartitionKey] smallint);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_Operation_RID": "FK_Operation_RID",
+							"FK_ServiceLog_RID": "FK_ServiceLog_RID",
+							"FK_PartitionKey": "FK_PartitionKey"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-OperationServiceLogs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-OperationServiceLogs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Outputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Outputs]', 'U') IS NULL CREATE TABLE [dbo].[Outputs] ([Output_RID] int,\n[Output] nvarchar(4000),\n[Hash] varbinary(64));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Output_RID": "Output_RID",
+							"Output": "Output",
+							"Hash": "Hash"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Outputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Outputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Ports",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Ports]', 'U') IS NULL CREATE TABLE [dbo].[Ports] ([Port_RID] int,\n[Port] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Port_RID": "Port_RID",
+							"Port": "Port"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Ports-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Ports-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-PredMACs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[PredMACs]', 'U') IS NULL CREATE TABLE [dbo].[PredMACs] ([PredMAC_RID] int,\n[MAC] varchar(8000),\n[MacAddr] varchar(50),\n[FK_ServiceLog_RID] nchar(10),\n[LastUpdate] datetime);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PredMAC_RID": "PredMAC_RID",
+							"MAC": "MAC",
+							"MacAddr": "MacAddr",
+							"FK_ServiceLog_RID": "FK_ServiceLog_RID",
+							"LastUpdate": "LastUpdate"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-PredMACs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-PredMACs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-predmacs_original",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[predmacs_original]', 'U') IS NULL CREATE TABLE [dbo].[predmacs_original] ([PredMAC_RID] int,\n[MAC] varchar(8000),\n[MacAddr] varchar(50),\n[FK_ServiceLog_RID] nchar(10),\n[LastUpdate] datetime);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PredMAC_RID": "PredMAC_RID",
+							"MAC": "MAC",
+							"MacAddr": "MacAddr",
+							"FK_ServiceLog_RID": "FK_ServiceLog_RID",
+							"LastUpdate": "LastUpdate"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-predmacs_original-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-predmacs_original-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-ProductCodes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[ProductCodes]', 'U') IS NULL CREATE TABLE [dbo].[ProductCodes] ([ProductCode_RID] int,\n[ProductCode] nvarchar(200));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"ProductCode_RID": "ProductCode_RID",
+							"ProductCode": "ProductCode"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-ProductCodes-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-ProductCodes-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-ResultCodes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[ResultCodes]', 'U') IS NULL CREATE TABLE [dbo].[ResultCodes] ([ResultCode_RID] int,\n[ResultCode] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"ResultCode_RID": "ResultCode_RID",
+							"ResultCode": "ResultCode"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-ResultCodes-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-ResultCodes-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-RSX_Sp_CustomerHits_ALL_CEC",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[RSX_Sp_CustomerHits_ALL_CEC]', 'U') IS NULL CREATE TABLE [dbo].[RSX_Sp_CustomerHits_ALL_CEC] ([CEC_ProductCode] nvarchar(200),\n[CEC_ARDPresent] int,\n[CEC_AmbiguityReason] varchar(31),\n[VendorID] varchar(512),\n[CEC_VendorIDQSEdit] varchar(8000),\n[CEC_IsVendorIDAmbiguousQSEdit] varchar(10),\n[CEC_OSD] varchar(512),\n[CEC_OSDVarchar] varchar(8000),\n[CEC_OSDDecodedStringQSEdit] varchar(255),\n[CEC_IsOSDNameAmbiguousQSEdit] varchar(10),\n[CEC_IsVendorIDAndOSDNameAmbiguousQSEdit] varchar(10),\n[CEC_LogicalAddress] varchar(512),\n[CEC_FK_IP_RID] int,\n[CEC_Username] nvarchar(512),\n[CEC_DATE] datetime);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"CEC_ProductCode": "CEC_ProductCode",
+							"CEC_ARDPresent": "CEC_ARDPresent",
+							"CEC_AmbiguityReason": "CEC_AmbiguityReason",
+							"VendorID": "VendorID",
+							"CEC_VendorIDQSEdit": "CEC_VendorIDQSEdit",
+							"CEC_IsVendorIDAmbiguousQSEdit": "CEC_IsVendorIDAmbiguousQSEdit",
+							"CEC_OSD": "CEC_OSD",
+							"CEC_OSDVarchar": "CEC_OSDVarchar",
+							"CEC_OSDDecodedStringQSEdit": "CEC_OSDDecodedStringQSEdit",
+							"CEC_IsOSDNameAmbiguousQSEdit": "CEC_IsOSDNameAmbiguousQSEdit",
+							"CEC_IsVendorIDAndOSDNameAmbiguousQSEdit": "CEC_IsVendorIDAndOSDNameAmbiguousQSEdit",
+							"CEC_LogicalAddress": "CEC_LogicalAddress",
+							"CEC_FK_IP_RID": "CEC_FK_IP_RID",
+							"CEC_Username": "CEC_Username",
+							"CEC_DATE": "CEC_DATE"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_CEC-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_CEC-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-RSX_Sp_CustomerHits_ALL_EDID",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[RSX_Sp_CustomerHits_ALL_EDID]', 'U') IS NULL CREATE TABLE [dbo].[RSX_Sp_CustomerHits_ALL_EDID] ([EDID_ProductCode] nvarchar(200),\n[EDID] varchar(8000),\n[EDID_MFG] nvarchar(3),\n[EDID_IsMFGAmbiguous] varchar(9),\n[EDID_MonitorName] nvarchar(50),\n[EDID_PhysicalAddress] nvarchar(25),\n[EDID_FK_IP_RID] int,\n[EDID_UserName] nvarchar(512),\n[EDID_Date] datetime,\n[ARD] int,\n[EDID_ARDPresent] int,\n[EDID_IsParsable] bit);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"EDID_ProductCode": "EDID_ProductCode",
+							"EDID": "EDID",
+							"EDID_MFG": "EDID_MFG",
+							"EDID_IsMFGAmbiguous": "EDID_IsMFGAmbiguous",
+							"EDID_MonitorName": "EDID_MonitorName",
+							"EDID_PhysicalAddress": "EDID_PhysicalAddress",
+							"EDID_FK_IP_RID": "EDID_FK_IP_RID",
+							"EDID_UserName": "EDID_UserName",
+							"EDID_Date": "EDID_Date",
+							"ARD": "ARD",
+							"EDID_ARDPresent": "EDID_ARDPresent",
+							"EDID_IsParsable": "EDID_IsParsable"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_EDID-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_EDID-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-RSX_Sp_CustomerHits_ALL_IP",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[RSX_Sp_CustomerHits_ALL_IP]', 'U') IS NULL CREATE TABLE [dbo].[RSX_Sp_CustomerHits_ALL_IP] ([IP_ProductCode] nvarchar(200),\n[IP_SSDP] nvarchar(4000),\n[IP_FK_IP_RID] int,\n[IP_Date] datetime,\n[IP_ARDPresent] int,\n[IP_IsParsable] bit,\n[IP_UserName] nvarchar(512));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"IP_ProductCode": "IP_ProductCode",
+							"IP_SSDP": "IP_SSDP",
+							"IP_FK_IP_RID": "IP_FK_IP_RID",
+							"IP_Date": "IP_Date",
+							"IP_ARDPresent": "IP_ARDPresent",
+							"IP_IsParsable": "IP_IsParsable",
+							"IP_UserName": "IP_UserName"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_IP-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_IP-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-RSX_Sp_CustomerHits_ALL_out",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[RSX_Sp_CustomerHits_ALL_out]', 'U') IS NULL CREATE TABLE [dbo].[RSX_Sp_CustomerHits_ALL_out] ([IP_RID] int,\n[IPAddress] varchar(45),\n[EDID_ProductCode] nvarchar(200),\n[EDID] varchar(8000),\n[EDID_MFG] nvarchar(3),\n[EDID_IsMFGAmbiguous] varchar(9),\n[EDID_MonitorName] nvarchar(50),\n[EDID_PhysicalAddress] nvarchar(25),\n[EDID_FK_IP_RID] int,\n[EDID_UserName] nvarchar(512),\n[EDID_Date] datetime,\n[ARD] int,\n[EDID_ARDPresent] int,\n[EDID_IsParsable] bit,\n[CEC_ProductCode] nvarchar(200),\n[CEC_ARDPresent] int,\n[CEC_AmbiguityReason] varchar(31),\n[VendorID] varchar(512),\n[CEC_VendorIDQSEdit] varchar(8000),\n[CEC_IsVendorIDAmbiguousQSEdit] varchar(10),\n[CEC_OSD] varchar(512),\n[CEC_OSDVarchar] varchar(8000),\n[CEC_OSDDecodedStringQSEdit] varchar(255),\n[CEC_IsOSDNameAmbiguousQSEdit] varchar(10),\n[CEC_IsVendorIDAndOSDNameAmbiguousQSEdit] varchar(10),\n[CEC_LogicalAddress] varchar(512),\n[CEC_FK_IP_RID] int,\n[CEC_Username] nvarchar(512),\n[CEC_DATE] datetime,\n[IP_ProductCode] nvarchar(200),\n[IP_SSDP] nvarchar(4000),\n[IP_FK_IP_RID] int,\n[IP_Date] datetime,\n[IP_ARDPresent] int,\n[IP_IsParsable] bit,\n[IP_UserName] nvarchar(512),\n[IPCountry] char(2),\n[IPLocation] varchar(80),\n[IPOrg] varchar(256));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"IP_RID": "IP_RID",
+							"IPAddress": "IPAddress",
+							"EDID_ProductCode": "EDID_ProductCode",
+							"EDID": "EDID",
+							"EDID_MFG": "EDID_MFG",
+							"EDID_IsMFGAmbiguous": "EDID_IsMFGAmbiguous",
+							"EDID_MonitorName": "EDID_MonitorName",
+							"EDID_PhysicalAddress": "EDID_PhysicalAddress",
+							"EDID_FK_IP_RID": "EDID_FK_IP_RID",
+							"EDID_UserName": "EDID_UserName",
+							"EDID_Date": "EDID_Date",
+							"ARD": "ARD",
+							"EDID_ARDPresent": "EDID_ARDPresent",
+							"EDID_IsParsable": "EDID_IsParsable",
+							"CEC_ProductCode": "CEC_ProductCode",
+							"CEC_ARDPresent": "CEC_ARDPresent",
+							"CEC_AmbiguityReason": "CEC_AmbiguityReason",
+							"VendorID": "VendorID",
+							"CEC_VendorIDQSEdit": "CEC_VendorIDQSEdit",
+							"CEC_IsVendorIDAmbiguousQSEdit": "CEC_IsVendorIDAmbiguousQSEdit",
+							"CEC_OSD": "CEC_OSD",
+							"CEC_OSDVarchar": "CEC_OSDVarchar",
+							"CEC_OSDDecodedStringQSEdit": "CEC_OSDDecodedStringQSEdit",
+							"CEC_IsOSDNameAmbiguousQSEdit": "CEC_IsOSDNameAmbiguousQSEdit",
+							"CEC_IsVendorIDAndOSDNameAmbiguousQSEdit": "CEC_IsVendorIDAndOSDNameAmbiguousQSEdit",
+							"CEC_LogicalAddress": "CEC_LogicalAddress",
+							"CEC_FK_IP_RID": "CEC_FK_IP_RID",
+							"CEC_Username": "CEC_Username",
+							"CEC_DATE": "CEC_DATE",
+							"IP_ProductCode": "IP_ProductCode",
+							"IP_SSDP": "IP_SSDP",
+							"IP_FK_IP_RID": "IP_FK_IP_RID",
+							"IP_Date": "IP_Date",
+							"IP_ARDPresent": "IP_ARDPresent",
+							"IP_IsParsable": "IP_IsParsable",
+							"IP_UserName": "IP_UserName",
+							"IPCountry": "IPCountry",
+							"IPLocation": "IPLocation",
+							"IPOrg": "IPOrg"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_out-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-RSX_Sp_CustomerHits_ALL_out-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-ServiceLogs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[ServiceLogs]', 'U') IS NULL CREATE TABLE [dbo].[ServiceLogs] ([PartitionKey] smallint,\n[ServiceLog_RID] int,\n[FK_Command_RID] int,\n[FK_OEMId_RID] int,\n[FK_Username_RID] int,\n[FK_ProductCode_RID] int,\n[FK_AppName_RID] int,\n[FK_Input_RID] int,\n[FK_Output_RID] int,\n[FK_IP_RID] int,\n[FK_Port_RID] int,\n[ProcessStartDate] datetime,\n[ProcessEndDate] datetime,\n[IsInternalOnly] bit,\n[IsACSupported] bit,\n[EnableSearchFiltering] bit,\n[EnableIDTransformation] bit,\n[TransformLocalIDOnly] bit,\n[FromCachedData] bit,\n[FK_ResultCode_RID] int,\n[FK_Misc_RID] int,\n[SequenceNum] bigint,\n[Offset] varchar(50),\n[EnqueuedTimeUtc] datetime,\n[FK_Date_RID] int,\n[FK_Time_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PartitionKey": "PartitionKey",
+							"ServiceLog_RID": "ServiceLog_RID",
+							"FK_Command_RID": "FK_Command_RID",
+							"FK_OEMId_RID": "FK_OEMId_RID",
+							"FK_Username_RID": "FK_Username_RID",
+							"FK_ProductCode_RID": "FK_ProductCode_RID",
+							"FK_AppName_RID": "FK_AppName_RID",
+							"FK_Input_RID": "FK_Input_RID",
+							"FK_Output_RID": "FK_Output_RID",
+							"FK_IP_RID": "FK_IP_RID",
+							"FK_Port_RID": "FK_Port_RID",
+							"ProcessStartDate": "ProcessStartDate",
+							"ProcessEndDate": "ProcessEndDate",
+							"IsInternalOnly": "IsInternalOnly",
+							"IsACSupported": "IsACSupported",
+							"EnableSearchFiltering": "EnableSearchFiltering",
+							"EnableIDTransformation": "EnableIDTransformation",
+							"TransformLocalIDOnly": "TransformLocalIDOnly",
+							"FromCachedData": "FromCachedData",
+							"FK_ResultCode_RID": "FK_ResultCode_RID",
+							"FK_Misc_RID": "FK_Misc_RID",
+							"SequenceNum": "SequenceNum",
+							"Offset": "Offset",
+							"EnqueuedTimeUtc": "EnqueuedTimeUtc",
+							"FK_Date_RID": "FK_Date_RID",
+							"FK_Time_RID": "FK_Time_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-ServiceLogs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-ServiceLogs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-SSDPInputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[SSDPInputs]', 'U') IS NULL CREATE TABLE [dbo].[SSDPInputs] ([FK_SSDP_RID] int,\n[FK_Input_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_SSDP_RID": "FK_SSDP_RID",
+							"FK_Input_RID": "FK_Input_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-SSDPInputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-SSDPInputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-SSDPOutputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[SSDPOutputs]', 'U') IS NULL CREATE TABLE [dbo].[SSDPOutputs] ([FK_SSDP_RID] int,\n[FK_Output_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_SSDP_RID": "FK_SSDP_RID",
+							"FK_Output_RID": "FK_Output_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-SSDPOutputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-SSDPOutputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-SSDPs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[SSDPs]', 'U') IS NULL CREATE TABLE [dbo].[SSDPs] ([SSDP_RID] int,\n[Hash] varbinary(64),\n[SSDP] nvarchar(4000),\n[FriendlyName] nvarchar(500),\n[Manufacturer] nvarchar(500),\n[ManufacturerURL] nvarchar(500),\n[ModelDescription] nvarchar(500),\n[ModelName] nvarchar(500),\n[ModelNumber] nvarchar(500),\n[ModelURL] nvarchar(500),\n[IsParsable] bit);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"SSDP_RID": "SSDP_RID",
+							"Hash": "Hash",
+							"SSDP": "SSDP",
+							"FriendlyName": "FriendlyName",
+							"Manufacturer": "Manufacturer",
+							"ManufacturerURL": "ManufacturerURL",
+							"ModelDescription": "ModelDescription",
+							"ModelName": "ModelName",
+							"ModelNumber": "ModelNumber",
+							"ModelURL": "ModelURL",
+							"IsParsable": "IsParsable"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-SSDPs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-SSDPs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-StageLogs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[StageLogs]', 'U') IS NULL CREATE TABLE [dbo].[StageLogs] ([StageLog_RID] int,\n[Command] nvarchar(50),\n[OEMId] nvarchar(50),\n[Username] nvarchar(512),\n[ProductCode] nvarchar(200),\n[AppName] nvarchar(100),\n[Input] nvarchar(4000),\n[Output] nvarchar(4000),\n[ProcessStartDate] datetime,\n[ProcessEndDate] datetime,\n[ResultCode] int,\n[IPAddress] varchar(100),\n[Version] varchar(50),\n[OperationName] varchar(200),\n[IsInternalOnly] bit,\n[IsACSupported] bit,\n[EnableSearchFiltering] bit,\n[EnableIDTransformation] bit,\n[TransformLocalIDOnly] bit,\n[FromCachedData] bit,\n[Misc] nvarchar(4000),\n[SequenceNum] bigint,\n[Offset] varchar(200),\n[EnqueuedTimeUtc] datetime);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"StageLog_RID": "StageLog_RID",
+							"Command": "Command",
+							"OEMId": "OEMId",
+							"Username": "Username",
+							"ProductCode": "ProductCode",
+							"AppName": "AppName",
+							"Input": "Input",
+							"Output": "Output",
+							"ProcessStartDate": "ProcessStartDate",
+							"ProcessEndDate": "ProcessEndDate",
+							"ResultCode": "ResultCode",
+							"IPAddress": "IPAddress",
+							"Version": "Version",
+							"OperationName": "OperationName",
+							"IsInternalOnly": "IsInternalOnly",
+							"IsACSupported": "IsACSupported",
+							"EnableSearchFiltering": "EnableSearchFiltering",
+							"EnableIDTransformation": "EnableIDTransformation",
+							"TransformLocalIDOnly": "TransformLocalIDOnly",
+							"FromCachedData": "FromCachedData",
+							"Misc": "Misc",
+							"SequenceNum": "SequenceNum",
+							"Offset": "Offset",
+							"EnqueuedTimeUtc": "EnqueuedTimeUtc"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-StageLogs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-StageLogs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Times",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Times]', 'U') IS NULL CREATE TABLE [dbo].[Times] ([Time_RID] int,\n[Time] char(8),\n[Hour] char(2),\n[MilitaryHour] char(2),\n[Minute] char(2),\n[Second] char(2),\n[AmPm] char(2),\n[StandardTime] char(11));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Time_RID": "Time_RID",
+							"Time": "Time",
+							"Hour": "Hour",
+							"MilitaryHour": "MilitaryHour",
+							"Minute": "Minute",
+							"Second": "Second",
+							"AmPm": "AmPm",
+							"StandardTime": "StandardTime"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Times-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Times-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-UEI2DeviceData",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[UEI2DeviceData]', 'U') IS NULL CREATE TABLE [dbo].[UEI2DeviceData] ([MainDevice] varchar(128),\n[SubDevice] varchar(128),\n[Brand] varchar(128),\n[Model] varchar(128),\n[ModelExt] varchar(128),\n[IsTarget] char(1),\n[ID] char(5));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"MainDevice": "MainDevice",
+							"SubDevice": "SubDevice",
+							"Brand": "Brand",
+							"Model": "Model",
+							"ModelExt": "ModelExt",
+							"IsTarget": "IsTarget",
+							"ID": "ID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-UEI2DeviceData-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-UEI2DeviceData-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-UpdateConfigDataInputXMLs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[UpdateConfigDataInputXMLs]', 'U') IS NULL CREATE TABLE [dbo].[UpdateConfigDataInputXMLs] ([FK_Input_RID] int,\n[ConvertedXMLInput] varchar(8000),\n[EDID] bit,\n[CEC] bit,\n[Infoframe] bit,\n[IP] bit,\n[UniqueID] int,\n[IsProcessed] bit);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_Input_RID": "FK_Input_RID",
+							"ConvertedXMLInput": "ConvertedXMLInput",
+							"EDID": "EDID",
+							"CEC": "CEC",
+							"Infoframe": "Infoframe",
+							"IP": "IP",
+							"UniqueID": "UniqueID",
+							"IsProcessed": "IsProcessed"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-UpdateConfigDataInputXMLs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-UpdateConfigDataInputXMLs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-dbo-Usernames",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[Usernames]', 'U') IS NULL CREATE TABLE [dbo].[Usernames] ([Username_RID] int,\n[Username] nvarchar(512));\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Username_RID": "Username_RID",
+							"Username": "Username"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-Usernames-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-Usernames-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-GAP-EDIDs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'GAP') EXEC('Create Schema [GAP]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[GAP].[EDIDs]', 'U') IS NULL CREATE TABLE [GAP].[EDIDs] ([EDID_RID] int,\n[EDID] varchar(500),\n[IsInQSX] bit,\n[LastUpdated] datetime);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"EDID_RID": "EDID_RID",
+							"EDID": "EDID",
+							"IsInQSX": "IsInQSX",
+							"LastUpdated": "LastUpdated"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GAP-EDIDs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "GAP-EDIDs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-IP-ARDOutputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'IP') EXEC('Create Schema [IP]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[IP].[ARDOutputs]', 'U') IS NULL CREATE TABLE [IP].[ARDOutputs] ([FK_ARD_RID] int,\n[FK_Output_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FK_ARD_RID": "FK_ARD_RID",
+							"FK_Output_RID": "FK_Output_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "IP-ARDOutputs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "IP-ARDOutputs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-IP-ARDs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'IP') EXEC('Create Schema [IP]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[IP].[ARDs]', 'U') IS NULL CREATE TABLE [IP].[ARDs] ([ARD_RID] int,\n[ARD] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"ARD_RID": "ARD_RID",
+							"ARD": "ARD"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "IP-ARDs-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "IP-ARDs-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy-IP-SSDPS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'IP') EXEC('Create Schema [IP]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[IP].[SSDPS]', 'U') IS NULL CREATE TABLE [IP].[SSDPS] ([SSDP_RID] int,\n[Hash] varbinary(64),\n[SSDP] nvarchar(4000),\n[FriendlyName] varchar(255),\n[Manufacturer] varchar(255),\n[ManufacturerURL] varchar(255),\n[ModelDescription] varchar(255),\n[ModelName] varchar(255),\n[ModelNumber] varchar(255),\n[ModelURL] varchar(255),\n[IsParsable] bit,\n[MissHits] bit);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-an4",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Redirecting-BlobStorage-an4",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"SSDP_RID": "SSDP_RID",
+							"Hash": "Hash",
+							"SSDP": "SSDP",
+							"FriendlyName": "FriendlyName",
+							"Manufacturer": "Manufacturer",
+							"ManufacturerURL": "ManufacturerURL",
+							"ModelDescription": "ModelDescription",
+							"ModelName": "ModelName",
+							"ModelNumber": "ModelNumber",
+							"ModelURL": "ModelURL",
+							"IsParsable": "IsParsable",
+							"MissHits": "MissHits"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "IP-SSDPS-i-an4",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "IP-SSDPS-o-an4",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

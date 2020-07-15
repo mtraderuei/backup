@@ -1,0 +1,29 @@
+{
+	"name": "dbo-OperationServiceLogs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "FK_Operation_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_ServiceLog_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_PartitionKey",
+				"type": "Int16"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[OperationServiceLogs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

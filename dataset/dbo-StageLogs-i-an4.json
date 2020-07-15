@@ -1,0 +1,113 @@
+{
+	"name": "dbo-StageLogs-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "StageLog_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Command",
+				"type": "String"
+			},
+			{
+				"name": "OEMId",
+				"type": "String"
+			},
+			{
+				"name": "Username",
+				"type": "String"
+			},
+			{
+				"name": "ProductCode",
+				"type": "String"
+			},
+			{
+				"name": "AppName",
+				"type": "String"
+			},
+			{
+				"name": "Input",
+				"type": "String"
+			},
+			{
+				"name": "Output",
+				"type": "String"
+			},
+			{
+				"name": "ProcessStartDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "ProcessEndDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "ResultCode",
+				"type": "Int32"
+			},
+			{
+				"name": "IPAddress",
+				"type": "String"
+			},
+			{
+				"name": "Version",
+				"type": "String"
+			},
+			{
+				"name": "OperationName",
+				"type": "String"
+			},
+			{
+				"name": "IsInternalOnly",
+				"type": "Boolean"
+			},
+			{
+				"name": "IsACSupported",
+				"type": "Boolean"
+			},
+			{
+				"name": "EnableSearchFiltering",
+				"type": "Boolean"
+			},
+			{
+				"name": "EnableIDTransformation",
+				"type": "Boolean"
+			},
+			{
+				"name": "TransformLocalIDOnly",
+				"type": "Boolean"
+			},
+			{
+				"name": "FromCachedData",
+				"type": "Boolean"
+			},
+			{
+				"name": "Misc",
+				"type": "String"
+			},
+			{
+				"name": "SequenceNum",
+				"type": "Int64"
+			},
+			{
+				"name": "Offset",
+				"type": "String"
+			},
+			{
+				"name": "EnqueuedTimeUtc",
+				"type": "DateTime"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[StageLogs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

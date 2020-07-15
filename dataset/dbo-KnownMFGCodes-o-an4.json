@@ -1,0 +1,25 @@
+{
+	"name": "dbo-KnownMFGCodes-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "MFG_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "MFG",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[KnownMFGCodes]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

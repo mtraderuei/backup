@@ -1,0 +1,49 @@
+{
+	"name": "dbo-Times-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Time_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Time",
+				"type": "String"
+			},
+			{
+				"name": "Hour",
+				"type": "String"
+			},
+			{
+				"name": "MilitaryHour",
+				"type": "String"
+			},
+			{
+				"name": "Minute",
+				"type": "String"
+			},
+			{
+				"name": "Second",
+				"type": "String"
+			},
+			{
+				"name": "AmPm",
+				"type": "String"
+			},
+			{
+				"name": "StandardTime",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Times]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

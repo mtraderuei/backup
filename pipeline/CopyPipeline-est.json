@@ -1,0 +1,98 @@
+{
+	"name": "CopyPipeline-est",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy-dbo-ServiceLogs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from [dbo].[ServiceLogs] where [ProcessStartDate] >= '@{formatDateTime(pipeline().parameters.windowStart, 'yyyy-MM-dd HH:mm' )}' AND [ProcessStartDate] < '@{formatDateTime(pipeline().parameters.windowEnd, 'yyyy-MM-dd HH:mm' )}'",
+							"type": "Expression"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "BEGIN TRY\nIF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'dbo') EXEC('Create Schema [dbo]');\nEND TRY\nBEGIN CATCH\nif ERROR_NUMBER() <> 2714 throw;\nEND CATCH\n\nIF OBJECT_ID('[dbo].[ServiceLogs]', 'U') IS NULL CREATE TABLE [dbo].[ServiceLogs] ([PartitionKey] smallint,\n[ServiceLog_RID] int,\n[FK_Command_RID] int,\n[FK_OEMId_RID] int,\n[FK_Username_RID] int,\n[FK_ProductCode_RID] int,\n[FK_AppName_RID] int,\n[FK_Input_RID] int,\n[FK_Output_RID] int,\n[FK_IP_RID] int,\n[FK_Port_RID] int,\n[ProcessStartDate] datetime,\n[ProcessEndDate] datetime,\n[IsInternalOnly] bit,\n[IsACSupported] bit,\n[EnableSearchFiltering] bit,\n[EnableIDTransformation] bit,\n[TransformLocalIDOnly] bit,\n[FromCachedData] bit,\n[FK_ResultCode_RID] int,\n[FK_Misc_RID] int,\n[SequenceNum] bigint,\n[Offset] varchar(50),\n[EnqueuedTimeUtc] datetime,\n[FK_Date_RID] int,\n[FK_Time_RID] int);\n",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage-est",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PartitionKey": "PartitionKey",
+							"ServiceLog_RID": "ServiceLog_RID",
+							"FK_Command_RID": "FK_Command_RID",
+							"FK_OEMId_RID": "FK_OEMId_RID",
+							"FK_Username_RID": "FK_Username_RID",
+							"FK_ProductCode_RID": "FK_ProductCode_RID",
+							"FK_AppName_RID": "FK_AppName_RID",
+							"FK_Input_RID": "FK_Input_RID",
+							"FK_Output_RID": "FK_Output_RID",
+							"FK_IP_RID": "FK_IP_RID",
+							"FK_Port_RID": "FK_Port_RID",
+							"ProcessStartDate": "ProcessStartDate",
+							"ProcessEndDate": "ProcessEndDate",
+							"IsInternalOnly": "IsInternalOnly",
+							"IsACSupported": "IsACSupported",
+							"EnableSearchFiltering": "EnableSearchFiltering",
+							"EnableIDTransformation": "EnableIDTransformation",
+							"TransformLocalIDOnly": "TransformLocalIDOnly",
+							"FromCachedData": "FromCachedData",
+							"FK_ResultCode_RID": "FK_ResultCode_RID",
+							"FK_Misc_RID": "FK_Misc_RID",
+							"SequenceNum": "SequenceNum",
+							"Offset": "Offset",
+							"EnqueuedTimeUtc": "EnqueuedTimeUtc",
+							"FK_Date_RID": "FK_Date_RID",
+							"FK_Time_RID": "FK_Time_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dbo-ServiceLogs-i-est",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-ServiceLogs-o-est",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,61 @@
+{
+	"name": "dbo-EDIDMFG-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "EDIDMFG_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "MFG",
+				"type": "String"
+			},
+			{
+				"name": "Hex",
+				"type": "String"
+			},
+			{
+				"name": "Brand",
+				"type": "String"
+			},
+			{
+				"name": "DeviceType",
+				"type": "String"
+			},
+			{
+				"name": "Registered",
+				"type": "Boolean"
+			},
+			{
+				"name": "Trusted",
+				"type": "Boolean"
+			},
+			{
+				"name": "Ambiguous",
+				"type": "Boolean"
+			},
+			{
+				"name": "IRSupport",
+				"type": "Boolean"
+			},
+			{
+				"name": "InCatalog",
+				"type": "Boolean"
+			},
+			{
+				"name": "Include",
+				"type": "Boolean"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[EDIDMFG]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,31 @@
+{
+	"name": "trigger_600M and up",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "600M and up",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime",
+				"windowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2018-01-30T00:00:00Z",
+			"endTime": "2018-01-31T02:39:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 10,
+			"retryPolicy": {
+				"count": 3,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"name": "dbo-EDIDFPs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "FK_EDID_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_FP_RID",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[EDIDFPs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

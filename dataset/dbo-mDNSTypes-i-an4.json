@@ -1,0 +1,25 @@
+{
+	"name": "dbo-mDNSTypes-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "mDNSType_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[mDNSTypes]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

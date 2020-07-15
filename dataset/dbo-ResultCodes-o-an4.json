@@ -1,0 +1,25 @@
+{
+	"name": "dbo-ResultCodes-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "ResultCode_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "ResultCode",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[ResultCodes]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

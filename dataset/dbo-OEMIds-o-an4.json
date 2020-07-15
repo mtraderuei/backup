@@ -1,0 +1,25 @@
+{
+	"name": "dbo-OEMIds-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "OEMId_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "OEMId",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[OEMIds]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

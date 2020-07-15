@@ -1,0 +1,33 @@
+{
+	"name": "dbo-CECs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "CEC_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "VendorID",
+				"type": "String"
+			},
+			{
+				"name": "OSD",
+				"type": "String"
+			},
+			{
+				"name": "LogicalAddress",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[CECs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

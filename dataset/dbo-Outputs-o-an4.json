@@ -1,0 +1,29 @@
+{
+	"name": "dbo-Outputs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "Output_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Output",
+				"type": "String"
+			},
+			{
+				"name": "Hash",
+				"type": "Byte[]"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Outputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

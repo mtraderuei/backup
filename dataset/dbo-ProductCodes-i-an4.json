@@ -1,0 +1,25 @@
+{
+	"name": "dbo-ProductCodes-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "ProductCode_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "ProductCode",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[ProductCodes]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

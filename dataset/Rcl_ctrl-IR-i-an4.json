@@ -1,0 +1,25 @@
+{
+	"name": "Rcl_ctrl-IR-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "IR_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Command",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[Rcl_ctrl].[IR]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

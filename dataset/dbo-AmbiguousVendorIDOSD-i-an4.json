@@ -1,0 +1,49 @@
+{
+	"name": "dbo-AmbiguousVendorIDOSD-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "VendorIDOSD_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Brand",
+				"type": "String"
+			},
+			{
+				"name": "VendorID",
+				"type": "String"
+			},
+			{
+				"name": "OSDName",
+				"type": "String"
+			},
+			{
+				"name": "OSDDecodedString",
+				"type": "String"
+			},
+			{
+				"name": "IsVendorIDAmbiguous",
+				"type": "String"
+			},
+			{
+				"name": "IsOSDNameAmbiguous",
+				"type": "String"
+			},
+			{
+				"name": "IsVendorIDAndOSDNameAmbiguous",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[AmbiguousVendorIDOSD]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

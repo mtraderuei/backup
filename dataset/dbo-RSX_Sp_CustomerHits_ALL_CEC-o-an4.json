@@ -1,0 +1,77 @@
+{
+	"name": "dbo-RSX_Sp_CustomerHits_ALL_CEC-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "CEC_ProductCode",
+				"type": "String"
+			},
+			{
+				"name": "CEC_ARDPresent",
+				"type": "Int32"
+			},
+			{
+				"name": "CEC_AmbiguityReason",
+				"type": "String"
+			},
+			{
+				"name": "VendorID",
+				"type": "String"
+			},
+			{
+				"name": "CEC_VendorIDQSEdit",
+				"type": "String"
+			},
+			{
+				"name": "CEC_IsVendorIDAmbiguousQSEdit",
+				"type": "String"
+			},
+			{
+				"name": "CEC_OSD",
+				"type": "String"
+			},
+			{
+				"name": "CEC_OSDVarchar",
+				"type": "String"
+			},
+			{
+				"name": "CEC_OSDDecodedStringQSEdit",
+				"type": "String"
+			},
+			{
+				"name": "CEC_IsOSDNameAmbiguousQSEdit",
+				"type": "String"
+			},
+			{
+				"name": "CEC_IsVendorIDAndOSDNameAmbiguousQSEdit",
+				"type": "String"
+			},
+			{
+				"name": "CEC_LogicalAddress",
+				"type": "String"
+			},
+			{
+				"name": "CEC_FK_IP_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "CEC_Username",
+				"type": "String"
+			},
+			{
+				"name": "CEC_DATE",
+				"type": "DateTime"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[RSX_Sp_CustomerHits_ALL_CEC]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

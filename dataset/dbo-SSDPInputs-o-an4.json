@@ -1,0 +1,25 @@
+{
+	"name": "dbo-SSDPInputs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "FK_SSDP_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_Input_RID",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[SSDPInputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

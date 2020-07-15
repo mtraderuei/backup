@@ -1,0 +1,25 @@
+{
+	"name": "dbo-MACs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "MAC_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "MAC",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[MACs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

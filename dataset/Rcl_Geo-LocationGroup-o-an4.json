@@ -1,0 +1,29 @@
+{
+	"name": "Rcl_Geo-LocationGroup-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "LocationGroup_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_Region_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_Country_RID",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[Rcl_Geo].[LocationGroup]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

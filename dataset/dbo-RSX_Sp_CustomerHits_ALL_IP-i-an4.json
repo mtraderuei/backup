@@ -1,0 +1,45 @@
+{
+	"name": "dbo-RSX_Sp_CustomerHits_ALL_IP-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "IP_ProductCode",
+				"type": "String"
+			},
+			{
+				"name": "IP_SSDP",
+				"type": "String"
+			},
+			{
+				"name": "IP_FK_IP_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "IP_Date",
+				"type": "DateTime"
+			},
+			{
+				"name": "IP_ARDPresent",
+				"type": "Int32"
+			},
+			{
+				"name": "IP_IsParsable",
+				"type": "Boolean"
+			},
+			{
+				"name": "IP_UserName",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[RSX_Sp_CustomerHits_ALL_IP]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

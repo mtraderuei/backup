@@ -1,0 +1,29 @@
+{
+	"name": "dbo-ARDRuleDescription-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "ARD_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "RuleType",
+				"type": "Byte[]"
+			},
+			{
+				"name": "RuleDescription",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[ARDRuleDescription]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

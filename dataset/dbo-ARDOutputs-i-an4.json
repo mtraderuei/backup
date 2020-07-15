@@ -1,0 +1,25 @@
+{
+	"name": "dbo-ARDOutputs-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "FK_ARD_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_Output_RID",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[ARDOutputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

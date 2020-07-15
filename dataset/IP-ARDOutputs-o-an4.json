@@ -1,0 +1,25 @@
+{
+	"name": "IP-ARDOutputs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "FK_ARD_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FK_Output_RID",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[IP].[ARDOutputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

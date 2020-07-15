@@ -1,0 +1,25 @@
+{
+	"name": "dbo-AppNames-i-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "AppName_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "AppName",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[AppNames]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

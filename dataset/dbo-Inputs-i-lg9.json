@@ -1,0 +1,29 @@
+{
+	"name": "dbo-Inputs-i-lg9",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-lg9",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Input_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Input",
+				"type": "String"
+			},
+			{
+				"name": "Hash",
+				"type": "Byte[]"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Inputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

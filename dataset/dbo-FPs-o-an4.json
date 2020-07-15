@@ -1,0 +1,29 @@
+{
+	"name": "dbo-FPs-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "FP_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "FP",
+				"type": "String"
+			},
+			{
+				"name": "FPType",
+				"type": "Int32"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[FPs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

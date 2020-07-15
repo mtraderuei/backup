@@ -1,0 +1,45 @@
+{
+	"name": "dbo-EDIDs_Copy-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "EDID_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "EDID",
+				"type": "String"
+			},
+			{
+				"name": "Hash",
+				"type": "Byte[]"
+			},
+			{
+				"name": "MFG",
+				"type": "String"
+			},
+			{
+				"name": "MonitorName",
+				"type": "String"
+			},
+			{
+				"name": "PhysicalAddress",
+				"type": "String"
+			},
+			{
+				"name": "IsParsable",
+				"type": "Boolean"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[EDIDs_Copy]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

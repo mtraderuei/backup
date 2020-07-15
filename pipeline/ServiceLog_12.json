@@ -1,0 +1,74 @@
+{
+	"name": "ServiceLog_12",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy-dbo-ServiceLogs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "\nselect *\nfrom serviceLogs \nwhere serviceLog_RID >= 280000000\nand serviceLog_RID <    310000000"
+					},
+					"sink": {
+						"type": "SqlDWSink"
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PartitionKey": "PartitionKey",
+							"ServiceLog_RID": "ServiceLog_RID",
+							"FK_Command_RID": "FK_Command_RID",
+							"FK_OEMId_RID": "FK_OEMId_RID",
+							"FK_Username_RID": "FK_Username_RID",
+							"FK_ProductCode_RID": "FK_ProductCode_RID",
+							"FK_AppName_RID": "FK_AppName_RID",
+							"FK_Input_RID": "FK_Input_RID",
+							"FK_Output_RID": "FK_Output_RID",
+							"FK_IP_RID": "FK_IP_RID",
+							"FK_Port_RID": "FK_Port_RID",
+							"ProcessStartDate": "ProcessStartDate",
+							"ProcessEndDate": "ProcessEndDate",
+							"IsInternalOnly": "IsInternalOnly",
+							"IsACSupported": "IsACSupported",
+							"EnableSearchFiltering": "EnableSearchFiltering",
+							"EnableIDTransformation": "EnableIDTransformation",
+							"TransformLocalIDOnly": "TransformLocalIDOnly",
+							"FromCachedData": "FromCachedData",
+							"FK_ResultCode_RID": "FK_ResultCode_RID",
+							"FK_Misc_RID": "FK_Misc_RID",
+							"SequenceNum": "SequenceNum",
+							"Offset": "Offset",
+							"EnqueuedTimeUtc": "EnqueuedTimeUtc",
+							"FK_Date_RID": "FK_Date_RID",
+							"FK_Time_RID": "FK_Time_RID"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Custom query-i-s1u",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dbo-ServiceLogs-o-s1u",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

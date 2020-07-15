@@ -1,0 +1,29 @@
+{
+	"name": "dbo-Inputs-o-1ta",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-1ta",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "Input_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Input",
+				"type": "String"
+			},
+			{
+				"name": "Hash",
+				"type": "Byte[]"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Inputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

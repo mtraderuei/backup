@@ -1,0 +1,25 @@
+{
+	"name": "dbo-Commands-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "Command_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "CommandName",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Commands]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

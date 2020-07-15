@@ -1,0 +1,81 @@
+{
+	"name": "dbo-Dates-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "Date_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Date",
+				"type": "DateTime"
+			},
+			{
+				"name": "Day",
+				"type": "String"
+			},
+			{
+				"name": "DaySuffix",
+				"type": "String"
+			},
+			{
+				"name": "DayOfWeek",
+				"type": "String"
+			},
+			{
+				"name": "DOWInMonth",
+				"type": "Int16"
+			},
+			{
+				"name": "DayOfYear",
+				"type": "Int32"
+			},
+			{
+				"name": "WeekOfYear",
+				"type": "Int16"
+			},
+			{
+				"name": "WeekOfMonth",
+				"type": "Int16"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "MonthName",
+				"type": "String"
+			},
+			{
+				"name": "Quarter",
+				"type": "Int16"
+			},
+			{
+				"name": "QuarterName",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "StandardDate",
+				"type": "String"
+			},
+			{
+				"name": "HolidayText",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Dates]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,65 @@
+{
+	"name": "IP-SSDPS-o-an4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLDW-an4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "SSDP_RID",
+				"type": "Int32"
+			},
+			{
+				"name": "Hash",
+				"type": "Byte[]"
+			},
+			{
+				"name": "SSDP",
+				"type": "String"
+			},
+			{
+				"name": "FriendlyName",
+				"type": "String"
+			},
+			{
+				"name": "Manufacturer",
+				"type": "String"
+			},
+			{
+				"name": "ManufacturerURL",
+				"type": "String"
+			},
+			{
+				"name": "ModelDescription",
+				"type": "String"
+			},
+			{
+				"name": "ModelName",
+				"type": "String"
+			},
+			{
+				"name": "ModelNumber",
+				"type": "String"
+			},
+			{
+				"name": "ModelURL",
+				"type": "String"
+			},
+			{
+				"name": "IsParsable",
+				"type": "Boolean"
+			},
+			{
+				"name": "MissHits",
+				"type": "Boolean"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[IP].[SSDPS]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
