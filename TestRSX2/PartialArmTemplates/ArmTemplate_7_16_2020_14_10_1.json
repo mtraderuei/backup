@@ -1,0 +1,29 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "TestRSX2"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"sasUri": "https://uswdevcollector.blob.core.windows.net/qsservicelog-eventhub/uswdevloghub/qsservicelog/0/2020/07/03/00/04/48.avro?sp=rcwd&st=2020-07-16T21:09:36Z&se=2020-07-17T05:09:36Z&spr=https&sv=2019-10-10&sr=b&sig=p3JrGiN55X1lbp3a%2F7YIQrDxsi7Nb%2BDaOq8dKAysnrU%3D"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
