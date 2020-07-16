@@ -1,0 +1,543 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "TempToDeleteAfter07162020"
+		},
+		"Destination-SQLDW-0h5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-0h5'"
+		},
+		"Destination-SQLDW-190_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-190'"
+		},
+		"Destination-SQLDW-1ta_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-1ta'"
+		},
+		"Destination-SQLDW-2fp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-2fp'"
+		},
+		"Destination-SQLDW-6hi_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-6hi'"
+		},
+		"Destination-SQLDW-7d1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-7d1'"
+		},
+		"Destination-SQLDW-8hb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-8hb'"
+		},
+		"Destination-SQLDW-9vo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-9vo'"
+		},
+		"Destination-SQLDW-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-an4'"
+		},
+		"Destination-SQLDW-azo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-azo'"
+		},
+		"Destination-SQLDW-bvj_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-bvj'"
+		},
+		"Destination-SQLDW-c7h_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-c7h'"
+		},
+		"Destination-SQLDW-dkb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-dkb'"
+		},
+		"Destination-SQLDW-dwo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-dwo'"
+		},
+		"Destination-SQLDW-est_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-est'"
+		},
+		"Destination-SQLDW-h07_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-h07'"
+		},
+		"Destination-SQLDW-jdh_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-jdh'"
+		},
+		"Destination-SQLDW-jq9_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-jq9'"
+		},
+		"Destination-SQLDW-lg9_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-lg9'"
+		},
+		"Destination-SQLDW-p3h_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-p3h'"
+		},
+		"Destination-SQLDW-qu3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-qu3'"
+		},
+		"Destination-SQLDW-rdg_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-rdg'"
+		},
+		"Destination-SQLDW-s1u_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-s1u'"
+		},
+		"Destination-SQLDW-u6w_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-u6w'"
+		},
+		"Destination-SQLDW-w93_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-w93'"
+		},
+		"Destination-SQLDW-z6s_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-z6s'"
+		},
+		"Destination-SQLDW-zcw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-zcw'"
+		},
+		"Destination-SQLDW-zg2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-zg2'"
+		},
+		"Redirecting-BlobStorage-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Redirecting-BlobStorage-an4'"
+		},
+		"Source-SQLAzure-0h5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-0h5'"
+		},
+		"Source-SQLAzure-190_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-190'"
+		},
+		"Source-SQLAzure-1ta_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-1ta'"
+		},
+		"Source-SQLAzure-2fp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-2fp'"
+		},
+		"Source-SQLAzure-6hi_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-6hi'"
+		},
+		"Source-SQLAzure-7d1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-7d1'"
+		},
+		"Source-SQLAzure-8hb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-8hb'"
+		},
+		"Source-SQLAzure-9vo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-9vo'"
+		},
+		"Source-SQLAzure-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-an4'"
+		},
+		"Source-SQLAzure-azo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-azo'"
+		},
+		"Source-SQLAzure-bvj_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-bvj'"
+		},
+		"Source-SQLAzure-c7h_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-c7h'"
+		},
+		"Source-SQLAzure-dkb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-dkb'"
+		},
+		"Source-SQLAzure-dwo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-dwo'"
+		},
+		"Source-SQLAzure-est_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-est'"
+		},
+		"Source-SQLAzure-h07_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-h07'"
+		},
+		"Source-SQLAzure-jdh_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-jdh'"
+		},
+		"Source-SQLAzure-jq9_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-jq9'"
+		},
+		"Source-SQLAzure-lg9_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-lg9'"
+		},
+		"Source-SQLAzure-p3h_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-p3h'"
+		},
+		"Source-SQLAzure-qu3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-qu3'"
+		},
+		"Source-SQLAzure-rdg_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-rdg'"
+		},
+		"Source-SQLAzure-s1u_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-s1u'"
+		},
+		"Source-SQLAzure-u6w_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-u6w'"
+		},
+		"Source-SQLAzure-w93_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-w93'"
+		},
+		"Source-SQLAzure-z6s_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-z6s'"
+		},
+		"Source-SQLAzure-zcw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-zcw'"
+		},
+		"Source-SQLAzure-zg2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-zg2'"
+		},
+		"StagingStorage-1ta_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'StagingStorage-1ta'"
+		},
+		"StagingStorage-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'StagingStorage-an4'"
+		},
+		"StagingStorage-est_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'StagingStorage-est'"
+		},
+		"temp0delete0after071620_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'temp0delete0after071620'"
+		},
+		"uswdevcollector_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'uswdevcollector'"
+		},
+		"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://uswdevcollector.blob.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Destination-SQLDW-0h5_connectionString": {
+						"value": "[parameters('Destination-SQLDW-0h5_connectionString')]"
+					},
+					"Destination-SQLDW-190_connectionString": {
+						"value": "[parameters('Destination-SQLDW-190_connectionString')]"
+					},
+					"Destination-SQLDW-1ta_connectionString": {
+						"value": "[parameters('Destination-SQLDW-1ta_connectionString')]"
+					},
+					"Destination-SQLDW-2fp_connectionString": {
+						"value": "[parameters('Destination-SQLDW-2fp_connectionString')]"
+					},
+					"Destination-SQLDW-6hi_connectionString": {
+						"value": "[parameters('Destination-SQLDW-6hi_connectionString')]"
+					},
+					"Destination-SQLDW-7d1_connectionString": {
+						"value": "[parameters('Destination-SQLDW-7d1_connectionString')]"
+					},
+					"Destination-SQLDW-8hb_connectionString": {
+						"value": "[parameters('Destination-SQLDW-8hb_connectionString')]"
+					},
+					"Destination-SQLDW-9vo_connectionString": {
+						"value": "[parameters('Destination-SQLDW-9vo_connectionString')]"
+					},
+					"Destination-SQLDW-an4_connectionString": {
+						"value": "[parameters('Destination-SQLDW-an4_connectionString')]"
+					},
+					"Destination-SQLDW-azo_connectionString": {
+						"value": "[parameters('Destination-SQLDW-azo_connectionString')]"
+					},
+					"Destination-SQLDW-bvj_connectionString": {
+						"value": "[parameters('Destination-SQLDW-bvj_connectionString')]"
+					},
+					"Destination-SQLDW-c7h_connectionString": {
+						"value": "[parameters('Destination-SQLDW-c7h_connectionString')]"
+					},
+					"Destination-SQLDW-dkb_connectionString": {
+						"value": "[parameters('Destination-SQLDW-dkb_connectionString')]"
+					},
+					"Destination-SQLDW-dwo_connectionString": {
+						"value": "[parameters('Destination-SQLDW-dwo_connectionString')]"
+					},
+					"Destination-SQLDW-est_connectionString": {
+						"value": "[parameters('Destination-SQLDW-est_connectionString')]"
+					},
+					"Destination-SQLDW-h07_connectionString": {
+						"value": "[parameters('Destination-SQLDW-h07_connectionString')]"
+					},
+					"Destination-SQLDW-jdh_connectionString": {
+						"value": "[parameters('Destination-SQLDW-jdh_connectionString')]"
+					},
+					"Destination-SQLDW-jq9_connectionString": {
+						"value": "[parameters('Destination-SQLDW-jq9_connectionString')]"
+					},
+					"Destination-SQLDW-lg9_connectionString": {
+						"value": "[parameters('Destination-SQLDW-lg9_connectionString')]"
+					},
+					"Destination-SQLDW-p3h_connectionString": {
+						"value": "[parameters('Destination-SQLDW-p3h_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Destination-SQLDW-qu3_connectionString": {
+						"value": "[parameters('Destination-SQLDW-qu3_connectionString')]"
+					},
+					"Destination-SQLDW-rdg_connectionString": {
+						"value": "[parameters('Destination-SQLDW-rdg_connectionString')]"
+					},
+					"Destination-SQLDW-s1u_connectionString": {
+						"value": "[parameters('Destination-SQLDW-s1u_connectionString')]"
+					},
+					"Destination-SQLDW-u6w_connectionString": {
+						"value": "[parameters('Destination-SQLDW-u6w_connectionString')]"
+					},
+					"Destination-SQLDW-w93_connectionString": {
+						"value": "[parameters('Destination-SQLDW-w93_connectionString')]"
+					},
+					"Destination-SQLDW-z6s_connectionString": {
+						"value": "[parameters('Destination-SQLDW-z6s_connectionString')]"
+					},
+					"Destination-SQLDW-zcw_connectionString": {
+						"value": "[parameters('Destination-SQLDW-zcw_connectionString')]"
+					},
+					"Destination-SQLDW-zg2_connectionString": {
+						"value": "[parameters('Destination-SQLDW-zg2_connectionString')]"
+					},
+					"Redirecting-BlobStorage-an4_connectionString": {
+						"value": "[parameters('Redirecting-BlobStorage-an4_connectionString')]"
+					},
+					"Source-SQLAzure-0h5_connectionString": {
+						"value": "[parameters('Source-SQLAzure-0h5_connectionString')]"
+					},
+					"Source-SQLAzure-190_connectionString": {
+						"value": "[parameters('Source-SQLAzure-190_connectionString')]"
+					},
+					"Source-SQLAzure-1ta_connectionString": {
+						"value": "[parameters('Source-SQLAzure-1ta_connectionString')]"
+					},
+					"Source-SQLAzure-2fp_connectionString": {
+						"value": "[parameters('Source-SQLAzure-2fp_connectionString')]"
+					},
+					"Source-SQLAzure-6hi_connectionString": {
+						"value": "[parameters('Source-SQLAzure-6hi_connectionString')]"
+					},
+					"Source-SQLAzure-7d1_connectionString": {
+						"value": "[parameters('Source-SQLAzure-7d1_connectionString')]"
+					},
+					"Source-SQLAzure-8hb_connectionString": {
+						"value": "[parameters('Source-SQLAzure-8hb_connectionString')]"
+					},
+					"Source-SQLAzure-9vo_connectionString": {
+						"value": "[parameters('Source-SQLAzure-9vo_connectionString')]"
+					},
+					"Source-SQLAzure-an4_connectionString": {
+						"value": "[parameters('Source-SQLAzure-an4_connectionString')]"
+					},
+					"Source-SQLAzure-azo_connectionString": {
+						"value": "[parameters('Source-SQLAzure-azo_connectionString')]"
+					},
+					"Source-SQLAzure-bvj_connectionString": {
+						"value": "[parameters('Source-SQLAzure-bvj_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Source-SQLAzure-c7h_connectionString": {
+						"value": "[parameters('Source-SQLAzure-c7h_connectionString')]"
+					},
+					"Source-SQLAzure-dkb_connectionString": {
+						"value": "[parameters('Source-SQLAzure-dkb_connectionString')]"
+					},
+					"Source-SQLAzure-dwo_connectionString": {
+						"value": "[parameters('Source-SQLAzure-dwo_connectionString')]"
+					},
+					"Source-SQLAzure-est_connectionString": {
+						"value": "[parameters('Source-SQLAzure-est_connectionString')]"
+					},
+					"Source-SQLAzure-h07_connectionString": {
+						"value": "[parameters('Source-SQLAzure-h07_connectionString')]"
+					},
+					"Source-SQLAzure-jdh_connectionString": {
+						"value": "[parameters('Source-SQLAzure-jdh_connectionString')]"
+					},
+					"Source-SQLAzure-jq9_connectionString": {
+						"value": "[parameters('Source-SQLAzure-jq9_connectionString')]"
+					},
+					"Source-SQLAzure-lg9_connectionString": {
+						"value": "[parameters('Source-SQLAzure-lg9_connectionString')]"
+					},
+					"Source-SQLAzure-p3h_connectionString": {
+						"value": "[parameters('Source-SQLAzure-p3h_connectionString')]"
+					},
+					"Source-SQLAzure-qu3_connectionString": {
+						"value": "[parameters('Source-SQLAzure-qu3_connectionString')]"
+					},
+					"Source-SQLAzure-rdg_connectionString": {
+						"value": "[parameters('Source-SQLAzure-rdg_connectionString')]"
+					},
+					"Source-SQLAzure-s1u_connectionString": {
+						"value": "[parameters('Source-SQLAzure-s1u_connectionString')]"
+					},
+					"Source-SQLAzure-u6w_connectionString": {
+						"value": "[parameters('Source-SQLAzure-u6w_connectionString')]"
+					},
+					"Source-SQLAzure-w93_connectionString": {
+						"value": "[parameters('Source-SQLAzure-w93_connectionString')]"
+					},
+					"Source-SQLAzure-z6s_connectionString": {
+						"value": "[parameters('Source-SQLAzure-z6s_connectionString')]"
+					},
+					"Source-SQLAzure-zcw_connectionString": {
+						"value": "[parameters('Source-SQLAzure-zcw_connectionString')]"
+					},
+					"Source-SQLAzure-zg2_connectionString": {
+						"value": "[parameters('Source-SQLAzure-zg2_connectionString')]"
+					},
+					"StagingStorage-1ta_connectionString": {
+						"value": "[parameters('StagingStorage-1ta_connectionString')]"
+					},
+					"StagingStorage-an4_connectionString": {
+						"value": "[parameters('StagingStorage-an4_connectionString')]"
+					},
+					"StagingStorage-est_connectionString": {
+						"value": "[parameters('StagingStorage-est_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"temp0delete0after071620_connectionString": {
+						"value": "[parameters('temp0delete0after071620_connectionString')]"
+					},
+					"uswdevcollector_connectionString": {
+						"value": "[parameters('uswdevcollector_connectionString')]"
+					},
+					"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobStorage1_properties_typeProperties_serviceEndpoint')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_2')]"
+			]
+		}
+	]
+}
