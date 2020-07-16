@@ -9,7 +9,10 @@
 		"type": "Avro",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "48.avro",
+				"folderPath": "uswdevloghub/qsservicelog/0/2020/07/03/00/04/01",
+				"container": "qsservicelog-eventhub"
 			}
 		}
 	}
