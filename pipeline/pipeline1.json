@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Main-Copy",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -44,7 +44,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "uswdevcollectorJulyAvroFile",
+						"referenceName": "Avro1",
 						"type": "DatasetReference"
 					}
 				],
