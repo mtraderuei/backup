@@ -44,7 +44,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Avro1",
+						"referenceName": "source",
 						"type": "DatasetReference"
 					}
 				],
