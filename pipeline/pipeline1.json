@@ -23,13 +23,9 @@
 						}
 					},
 					"sink": {
-						"type": "AvroSink",
+						"type": "ParquetSink",
 						"storeSettings": {
 							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "AvroWriteSettings",
-							"quoteAllText": true
 						}
 					},
 					"enableStaging": false,
@@ -50,7 +46,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "sink",
+						"referenceName": "sink_parquet",
 						"type": "DatasetReference"
 					}
 				]
