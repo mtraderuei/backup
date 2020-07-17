@@ -169,7 +169,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"name": "[concat(parameters('factoryName'), '/sink')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -178,19 +178,138 @@
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "Avro",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "uswdevloghub/qsservicelog/0/2020/07/03/00/04",
+						"folderPath": "uswdevloghub/qsservicelog/0/2020/07/03/00",
 						"container": "qsservicelog-eventhub"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+					}
 				},
-				"schema": []
+				"schema": {
+					"type": "record",
+					"name": "Microsoft.ServiceBus.Messaging.EventData",
+					"fields": [
+						{
+							"name": "SequenceNumber",
+							"type": "long"
+						},
+						{
+							"name": "Offset",
+							"type": "string"
+						},
+						{
+							"name": "EnqueuedTimeUtc",
+							"type": "string"
+						},
+						{
+							"name": "SystemProperties",
+							"type": {
+								"type": "map",
+								"values": [
+									"long",
+									"double",
+									"string",
+									"bytes"
+								]
+							}
+						},
+						{
+							"name": "Properties",
+							"type": {
+								"type": "map",
+								"values": [
+									"long",
+									"double",
+									"string",
+									"bytes",
+									"null"
+								]
+							}
+						},
+						{
+							"name": "Body",
+							"type": [
+								"null",
+								"bytes"
+							]
+						}
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Avro",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "38.avro",
+						"folderPath": "uswdevloghub/qsservicelog/0/2020/07/03/00/14",
+						"container": "qsservicelog-eventhub"
+					}
+				},
+				"schema": {
+					"type": "record",
+					"name": "Microsoft.ServiceBus.Messaging.EventData",
+					"fields": [
+						{
+							"name": "SequenceNumber",
+							"type": "long"
+						},
+						{
+							"name": "Offset",
+							"type": "string"
+						},
+						{
+							"name": "EnqueuedTimeUtc",
+							"type": "string"
+						},
+						{
+							"name": "SystemProperties",
+							"type": {
+								"type": "map",
+								"values": [
+									"long",
+									"double",
+									"string",
+									"bytes"
+								]
+							}
+						},
+						{
+							"name": "Properties",
+							"type": {
+								"type": "map",
+								"values": [
+									"long",
+									"double",
+									"string",
+									"bytes",
+									"null"
+								]
+							}
+						},
+						{
+							"name": "Body",
+							"type": [
+								"null",
+								"bytes"
+							]
+						}
+					]
+				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
@@ -223,14 +342,13 @@
 								}
 							},
 							"sink": {
-								"type": "DelimitedTextSink",
+								"type": "AvroSink",
 								"storeSettings": {
 									"type": "AzureBlobStorageWriteSettings"
 								},
 								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
+									"type": "AvroWriteSettings",
+									"quoteAllText": true
 								}
 							},
 							"enableStaging": false,
@@ -245,14 +363,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Avro1",
+								"referenceName": "source",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DelimitedText1",
+								"referenceName": "sink",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -262,8 +380,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Avro1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]"
+				"[concat(variables('factoryId'), '/datasets/source')]",
+				"[concat(variables('factoryId'), '/datasets/sink')]"
 			]
 		}
 	]
