@@ -16,29 +16,33 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "ParquetSource",
+						"type": "AvroSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true
 						}
 					},
 					"sink": {
-						"type": "ParquetSink",
+						"type": "AvroSink",
 						"storeSettings": {
 							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "AvroWriteSettings",
+							"quoteAllText": true
 						}
 					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "source_parquet",
+						"referenceName": "source_avro_blob_key",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "sink_parquet",
+						"referenceName": "sink_avro_blob_key",
 						"type": "DatasetReference"
 					}
 				]
