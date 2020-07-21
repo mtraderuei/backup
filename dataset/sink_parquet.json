@@ -2,7 +2,7 @@
 	"name": "sink_parquet",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorageParquet",
+			"referenceName": "AzureBlobStorageKey",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
