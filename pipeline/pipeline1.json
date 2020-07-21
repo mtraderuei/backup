@@ -32,7 +32,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "source_parquet",
+						"referenceName": "AzureBlobStorageKeyParquetSource",
 						"type": "DatasetReference"
 					}
 				],
