@@ -6,7 +6,7 @@
 		"type": "AzureBlobStorage",
 		"typeProperties": {
 			"connectionString": "DefaultEndpointsProtocol=https;AccountName=uswdevcollector;EndpointSuffix=core.windows.net;",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlRFTVBUT0RFTEVURUFGVEVSMDcxNjIwMjBfMzgzOGIxYjktN2RlYy00YzZiLWI2YzQtZGVjZjEzYWY0ZWZhIg0KfQ=="
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlRFTVBUT0RFTEVURUFGVEVSMDcxNjIwMjBfMzE5ZWJjZTgtMzdlYy00OTJhLThiZmEtMjAwZTNmOTI1NmRhIg0KfQ=="
 		},
 		"connectVia": {
 			"referenceName": "EastUS",
