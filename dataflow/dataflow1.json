@@ -3,18 +3,10 @@
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
-			"sources": [
-				{
-					"dataset": {
-						"referenceName": "source",
-						"type": "DatasetReference"
-					},
-					"name": "source1"
-				}
-			],
+			"sources": [],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(output(\n\t\tSequenceNumber as long,\n\t\tOffset as string,\n\t\tEnqueuedTimeUtc as string,\n\t\tSystemProperties as string,\n\t\tProperties as string,\n\t\tBody as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tlimit: 100) ~> source1"
+			"script": ""
 		}
 	}
 }
