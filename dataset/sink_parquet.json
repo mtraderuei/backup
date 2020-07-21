@@ -1,0 +1,20 @@
+{
+	"name": "sink_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageParquet",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "uswdevloghub/qsservicelog/0/2020/07/03/00/14",
+				"container": "qsservicelog-eventhub"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

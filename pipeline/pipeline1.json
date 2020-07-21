@@ -23,10 +23,20 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"allowCopyCommand": true
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -36,7 +46,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "sink_synapse",
+						"referenceName": "sink_parquet",
 						"type": "DatasetReference"
 					}
 				]
