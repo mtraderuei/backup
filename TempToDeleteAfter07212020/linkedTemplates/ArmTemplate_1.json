@@ -1,0 +1,356 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "TempToDeleteAfter07212020"
+		},
+		"Destination-SQLDW-p3h_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-p3h'"
+		},
+		"Destination-SQLDW-qu3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-qu3'"
+		},
+		"Destination-SQLDW-rdg_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-rdg'"
+		},
+		"Destination-SQLDW-s1u_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-s1u'"
+		},
+		"Destination-SQLDW-u6w_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-u6w'"
+		},
+		"Destination-SQLDW-w93_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-w93'"
+		},
+		"Destination-SQLDW-z6s_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-z6s'"
+		},
+		"Destination-SQLDW-zcw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-zcw'"
+		},
+		"Destination-SQLDW-zg2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Destination-SQLDW-zg2'"
+		},
+		"Redirecting-BlobStorage-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Redirecting-BlobStorage-an4'"
+		},
+		"Source-SQLAzure-0h5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-0h5'"
+		},
+		"Source-SQLAzure-190_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-190'"
+		},
+		"Source-SQLAzure-1ta_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-1ta'"
+		},
+		"Source-SQLAzure-2fp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-2fp'"
+		},
+		"Source-SQLAzure-6hi_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-6hi'"
+		},
+		"Source-SQLAzure-7d1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-7d1'"
+		},
+		"Source-SQLAzure-8hb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-8hb'"
+		},
+		"Source-SQLAzure-9vo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-9vo'"
+		},
+		"Source-SQLAzure-an4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-an4'"
+		},
+		"Source-SQLAzure-azo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Source-SQLAzure-azo'"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-p3h')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-p3h_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-qu3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-qu3_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-rdg')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-rdg_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-s1u')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-s1u_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-u6w')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-u6w_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-w93')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-w93_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-z6s')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-z6s_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-zcw')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-zcw_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination-SQLDW-zg2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('Destination-SQLDW-zg2_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Redirecting-BlobStorage-an4')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('Redirecting-BlobStorage-an4_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-0h5')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-0h5_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-190')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-190_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-1ta')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-1ta_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-2fp')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-2fp_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-6hi')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-6hi_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-7d1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-7d1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-8hb')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-8hb_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-9vo')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-9vo_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-an4')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-an4_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source-SQLAzure-azo')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('Source-SQLAzure-azo_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

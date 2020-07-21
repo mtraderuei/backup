@@ -1,0 +1,201 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "TempToDeleteAfter07212020"
+		},
+		"AzureBlobStorageKey_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseParquetTest_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-0h5_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-190_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-1ta_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-2fp_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-6hi_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-7d1_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-8hb_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-9vo_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-an4_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-azo_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-bvj_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-c7h_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-dkb_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-dwo_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-est_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-h07_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-jdh_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-jq9_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-lg9_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-p3h_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-qu3_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-rdg_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-s1u_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-u6w_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-w93_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-z6s_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-zcw_connectionString": {
+			"value": ""
+		},
+		"Destination-SQLDW-zg2_connectionString": {
+			"value": ""
+		},
+		"Redirecting-BlobStorage-an4_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-0h5_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-190_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-1ta_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-2fp_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-6hi_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-7d1_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-8hb_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-9vo_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-an4_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-azo_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-bvj_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-c7h_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-dkb_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-dwo_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-est_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-h07_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-jdh_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-jq9_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-lg9_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-p3h_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-qu3_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-rdg_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-s1u_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-u6w_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-w93_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-z6s_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-zcw_connectionString": {
+			"value": ""
+		},
+		"Source-SQLAzure-zg2_connectionString": {
+			"value": ""
+		},
+		"StagingStorage-1ta_connectionString": {
+			"value": ""
+		},
+		"StagingStorage-an4_connectionString": {
+			"value": ""
+		},
+		"StagingStorage-est_connectionString": {
+			"value": ""
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
