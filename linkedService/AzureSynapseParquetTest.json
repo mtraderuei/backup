@@ -6,10 +6,6 @@
 		"type": "AzureSqlDW",
 		"typeProperties": {
 			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=uswdevdb.database.windows.net;Initial Catalog=DEV_RSXDW"
-		},
-		"connectVia": {
-			"referenceName": "EastUS",
-			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
