@@ -1,0 +1,16 @@
+{
+	"name": "SynapseSink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseParquetTest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "test_parquet"
+		}
+	}
+}
