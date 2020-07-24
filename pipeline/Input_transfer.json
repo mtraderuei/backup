@@ -1,0 +1,68 @@
+{
+	"name": "Input_transfer",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_CT_Inputs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": {
+							"value": "select S.ServiceLog_RID, DateKey = 201805 , I.Input\nfrom ServiceLogs S (nolock)\n\tinner join Inputs I (nolock) on S.FK_Input_RID = I.Input_RID\nwhere FK_Command_RID = 29\nand ProcessStartDate > '5/8/2018'",
+							"type": "Expression"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 100,
+							"rejectType": "percentage",
+							"rejectSampleValue": 1000,
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "StagingStorage_s22",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfstagingcopydata"
+					},
+					"enableSkipIncompatibleRow": true,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"ServiceLog_RID": "ServiceLog_RID",
+							"DateKey": "DateKey",
+							"Input": "Input"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Custom_query_i_s22",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CT_Inputs_o_s22",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

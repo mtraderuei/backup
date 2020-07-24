@@ -1,0 +1,29 @@
+{
+	"name": "CT_Inputs_o_9cx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination_SQLDW_s22",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "ServiceLog_RID",
+				"type": "Int64"
+			},
+			{
+				"name": "DateKey",
+				"type": "Int32"
+			},
+			{
+				"name": "Input",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[CT].[Inputs]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
