@@ -54,7 +54,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "uswdevcollectoravtro",
+						"referenceName": "deleteafter07222020avro",
 						"type": "DatasetReference"
 					}
 				]
