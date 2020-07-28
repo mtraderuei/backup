@@ -20,7 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "uswprodloghub/qsservicelog/2/2020/07/09",
+							"wildcardFolderPath": "uswprodloghub/qsservicelog/3/2020/07/09",
 							"wildcardFileName": "*.avro",
 							"enablePartitionDiscovery": false
 						}
