@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "uswtestloghub/qsservicelog/0/2020/07/21",
+				"folderPath": "uswtestloghub/qsservicelog/0/2020/07/09",
 				"container": "qsservicelog-eventhub"
 			}
 		},
