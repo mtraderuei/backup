@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "*.avro",
-				"folderPath": "uswprodloghub/qsservicelog/7/2020/07/11",
+				"folderPath": "uswprodloghub/qsservicelog/0/2020/07/12",
 				"container": "qsservicelog-eventhub"
 			}
 		},
